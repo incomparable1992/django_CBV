@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Notes</title>
+</head>
+<body>
+
+<h1>Notes List</h1><hr>
+{% if object_list %}
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Created Time</th>
+        <th>Updated Time</th>
+        <th>Description</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for note in object_list %}
+    <tr>
+        <td>{{ note.title }}</td>
+        <td>{{ note.description }}</td>
+        <td>{{ note.created_at }}</td>
+        <td>{{ note.updated_at }}</td>
+        <td><a  href="{% url 'note_detail'  note.id  %}">details</a></td>
+        <td><a  href="{% url 'note_update'  note.id  %}">edit</a></td>
+        <td><a  href="{% url 'note_delete'  note.id  %}">delete</a></td>
+        </td>
+    </tr>
+
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+
+<p style="color:red;"> No Data.</p>
+{% endif %}
+</body>
+</html>
+

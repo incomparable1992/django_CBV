@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Note</title>
+</head>
+<body>
+
+<h1>Note Delete?</h1><hr>
+<form  method="post">
+{% csrf_token %}
+Are you sure you want to delete this note?
+<input  type="submit"  value="Submit"  />
+</form>
+
+</body>
+</html>
